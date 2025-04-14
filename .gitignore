@@ -1,0 +1,76 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Pyenv
+.python-version
+
+# Environments
+.env
+.envrc
+venv/
+venv.bak/
+ENV/
+
+# Unit test / coverage reports
+.coverage
+.tox/
+.nox/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Intellisense
+.vscode/
+
+# Jupyter Notebook specific
+.ipynb_checkpoints/
+**/.ipynb_checkpoints
+
+# MacOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.~*
+
+# Exclude any files named 'secret', 'password', or 'credentials'
+secret*
+password*
+credentials*

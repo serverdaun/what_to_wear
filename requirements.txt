@@ -1,0 +1,5 @@
+smolagents
+pandas
+openmeteo_requests
+python-dotenv
+stramlit
