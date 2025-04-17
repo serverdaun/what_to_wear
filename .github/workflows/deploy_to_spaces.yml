@@ -14,7 +14,17 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      
+      - name: Sanity-check token
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          if [ -z "$HF_TOKEN" ]; then
+            echo "HF_TOKEN is empty ‼️"; exit 1;
+          fi
+          echo "Token length: ${#HF_TOKEN}"
+
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://serverdaun:$HF_TOKEN@huggingface.co/spaces/serverdaun/what_to_wear main
+        run: git push https://serverdaun:$HF_TOKEN@huggingface.co/spaces/serverdaun/what_to_wear.git main
