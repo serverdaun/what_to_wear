@@ -27,4 +27,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://serverdaun:$HF_TOKEN@huggingface.co/spaces/serverdaun/what_to_wear.git main
+        run: git push https://serverdaun:$HF_TOKEN@huggingface.co/spaces/serverdaun/what_to_wear.git main --force
