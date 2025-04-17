@@ -6,7 +6,7 @@ colorTo: blue
 sdk: streamlit
 sdk_version: 1.44.1
 app_file: app.py
-python_version: "3.13"
+pinned: false
 ---
 
 # What to Wear — Clothing Recommendation Agent
