@@ -14,6 +14,11 @@ pinned: false
 This application is a smart outfit recommendation assistant built with Streamlit and a code-based agent architecture. It provides personalized clothing suggestions based on real-time weather conditions in a user-specified city.
 
 P.S. You don't have to look out the window anymore :)
+ 
+## Live Demo
+ 
+Try the application live on Hugging Face Spaces: [https://huggingface.co/spaces/serverdaun/what_to_wear](https://huggingface.co/spaces/serverdaun/what_to_wear)
+ 
 
 ## Features
 
