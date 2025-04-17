@@ -63,7 +63,7 @@ st.session_state.sex = st.selectbox("Select your gender", options=["Male", "Fema
 # Create a button to get the recommendation
 if st.button("Get Recommendation"):
     if st.session_state.city and st.session_state.age and st.session_state.sex:
-        with st.spinner("Fetchin outifit suggestions..."):
+        with st.spinner("Fetching outifit suggestions..."):
 
             result = get_clothing_reccomendation(
                 city=st.session_state.city,
