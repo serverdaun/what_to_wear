@@ -1,3 +1,14 @@
+---
+title: What to Wear — Clothing Recommendation Agent
+emoji: 🧥
+colorFrom: indigo
+colorTo: blue
+sdk: streamlit
+sdk_version: 1.44.1
+app_file: app.py
+python_version: "3.13"
+---
+
 # What to Wear — Clothing Recommendation Agent
 
 This application is a smart outfit recommendation assistant built with Streamlit and a code-based agent architecture. It provides personalized clothing suggestions based on real-time weather conditions in a user-specified city.
