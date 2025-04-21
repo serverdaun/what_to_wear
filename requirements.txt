@@ -3,3 +3,8 @@ pandas
 openmeteo_requests
 python-dotenv
 streamlit
+smolagents[telemetry]
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+openinference-instrumentation-smolagents
+langfuse
