@@ -9,6 +9,8 @@ app_file: app.py
 pinned: false
 ---
 
+![CD to HF Space](https://github.com/serverdaun/what_to_wear/actions/workflows/deploy_to_spaces.yml/badge.svg)
+
 # What to Wear — Clothing Recommendation Agent
 
 This application is a smart outfit recommendation assistant built with Streamlit and a code-based agent architecture. It provides personalized clothing suggestions based on real-time weather conditions in a user-specified city.
