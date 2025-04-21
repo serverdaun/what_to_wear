@@ -1,9 +1,16 @@
+import os
+import streamlit as st
+import os
+import base64
 from smolagents import CodeAgent, HfApiModel, FinalAnswerTool
 from tools.get_weather import get_weather_forecast
 from utils.utils import load_prompt
 from dotenv import load_dotenv
-import os
-import streamlit as st
+from opentelemetry.sdk.trace import TracerProvider
+from openinference.instrumentation.smolagents import SmolagentsInstrumentor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+from opentelemetry import trace
 
 if "city" not in st.session_state:
     st.session_state.city = ""
@@ -14,6 +21,26 @@ if "sex" not in st.session_state:
 
 load_dotenv()
 hf_token = os.getenv("HF_TOKEN")
+
+# Set up the OpenTelemetry exporter for LangFuse
+LANGFUSE_AUTH = base64.b64encode(
+    f"{os.environ.get('LANGFUSE_PUBLIC_KEY')}:{os.environ.get('LANGFUSE_SECRET_KEY')}".encode()
+).decode()
+os.environ["OTEL_EXPORTER_OTLP_ENDPOINT"] = os.environ.get("LANGFUSE_HOST") + "/api/public/otel"
+os.environ["OTEL_EXPORTER_OTLP_HEADERS"] = f"Authorization=Basic {LANGFUSE_AUTH}"
+ 
+# Create a TracerProvider for OpenTelemetry
+trace_provider = TracerProvider()
+
+# Add a SimpleSpanProcessor with the OTLPSpanExporter to send traces
+trace_provider.add_span_processor(SimpleSpanProcessor(OTLPSpanExporter()))
+
+# Set the global default tracer provider
+trace.set_tracer_provider(trace_provider)
+tracer = trace.get_tracer(__name__)
+
+# Instrument smolagents with the configured provider
+SmolagentsInstrumentor().instrument(tracer_provider=trace_provider)
 
 def get_clothing_reccomendation(city: str, age: str, sex: str) -> str:
     """
